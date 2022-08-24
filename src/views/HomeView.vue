@@ -30,6 +30,12 @@
         </template>
       </ul>
     </div>
+    <div class="flex flex-col gap">
+      <Suspense>
+        <CityList />
+        <template #fallback> <p>Loading Saved Cities</p> </template>
+      </Suspense>
+    </div>
   </main>
 </template>
 
@@ -37,6 +43,7 @@
 import { ref } from "vue"
 import axios from "axios"
 import { useRouter } from "vue-router"
+import CityList from "../components/CityList.vue"
 
 const router = useRouter()
 const previewCity = (searchResult) => {
