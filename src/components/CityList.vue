@@ -1,4 +1,5 @@
 <template>
+  <h3 class="text-xl text-white mb-2">Saved Cities.</h3>
   <div v-for="city in savedCities" :key="city.id">
     <CityCard :city="city" @click="goToCityView(city)" />
   </div>
@@ -49,6 +50,7 @@ const goToCityView = (city) => {
       city: city.city
     },
     query: {
+      id: city.id,
       lat: city.coords.lat,
       lng: city.coords.lng
     }
