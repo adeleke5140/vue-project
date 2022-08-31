@@ -33,7 +33,9 @@
     <div class="flex flex-col gap">
       <Suspense>
         <CityList />
-        <template #fallback> <p>Loading Saved Cities</p> </template>
+        <template #fallback>
+          <CityCardSkeleton />
+        </template>
       </Suspense>
     </div>
   </main>
@@ -44,6 +46,7 @@ import { ref } from "vue"
 import axios from "axios"
 import { useRouter } from "vue-router"
 import CityList from "../components/CityList.vue"
+import CityCardSkeleton from "../components/CityCardSkeleton.vue"
 
 const router = useRouter()
 const previewCity = (searchResult) => {
